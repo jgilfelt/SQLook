@@ -1,11 +1,13 @@
 SQLook
 ======
 
-SQLook is a simple Python program that helps you examine an Android application's SQLite database running on an emulator or compatible device using a 3rd party SQLite client application. A worker thread monitors the database file for changes and will immediately push any modifications back to the device. 
+SQLook is a simple Python program that helps you examine an Android application's SQLite database running on an emulator or compatible device using a 3rd party SQLite client application.   
 
 <img src="https://raw.github.com/jgilfelt/SQLook/master/screenshot.png"/>
 
 SQLook is intended as an alternative to the adb `sqlite3` command prompt for developers who prefer more graphical database tools. It assumes databases are managed and stored in the standard location defined by Android's `SQLiteOpenHelper` class. All the normal security restrictions for database and file access still apply here - this tool will only really work with an emulator or rooted device.
+
+A worker thread monitors the database file for client changes and will immediately push the modified databse file back to the device. Modifications made to the database by the app will not be refelected in the SQLite client until it is closed and SQLook is run again. Such changes may be lost if modifications were also made in the client.
 
 ### Note: currently Mac OSX support only - pull requests welcome
 
