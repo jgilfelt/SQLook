@@ -1,2 +1,3 @@
 #!/bin/sh
-python sqlook.py $@
+f=`dirname $0`
+python $f/sqlook.py $@
